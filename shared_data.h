@@ -19,7 +19,7 @@ struct SharedData {
     int all_done;
     int no_sync;
     int use_delay;
-    int verbose; // 1 = detailed logging
+    int verbose;
     int fixed_count[3];
 };
 
