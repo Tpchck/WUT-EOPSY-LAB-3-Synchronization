@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
     setbuf(stdout, nullptr);
     int no_sync = 0, use_delay = 0, verbose = 0; // cli flags
     int counts[3] = {0, 0, 0}; // optional element counts
-    int ci = 0;
+    int ci = 0; // count index
 
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--no-sync") == 0) no_sync = 1;
