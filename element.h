@@ -8,7 +8,7 @@
 #define PROD_MAX 1128
 
 struct Element {
-    char type;
+    char type; // A, B or C
     uint8_t value;
 };
 
