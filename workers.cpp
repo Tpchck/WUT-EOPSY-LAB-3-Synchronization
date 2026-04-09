@@ -60,7 +60,7 @@ void producer(SharedData *sd, char type) {
 
   for (int i = 0; i < n; i++) {
     if (sd->use_delay)
-      usleep(200 + rand() % 800);
+      usleep(100 + rand() % 900);
 
     sw(&sd->slots, sd->no_sync);
     sw(&sd->mutex, sd->no_sync);
