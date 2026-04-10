@@ -11,7 +11,7 @@
 #define SHM_NAME "/sync_lab3_335954"
 
 int main(int argc, char* argv[]) {
-    setbuf(stdout, NULL);
+    setbuf(stdout, nullptr);
     int no_sync = 0, use_delay = 0, verbose = 0;
     int counts[3] = {0, 0, 0};
     int ci = 0;
