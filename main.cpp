@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
            no_sync ? "OFF" : "ON", use_delay ? "ON" : "OFF");
 
     pid_t pids[5]; // 3 producers + 2 consumers
-    char types[] = {'A', 'B', 'C'};
+    const char types[] = {'A', 'B', 'C'};
 
     for (int i = 0; i < 3; i++) {
         pids[i] = fork();
