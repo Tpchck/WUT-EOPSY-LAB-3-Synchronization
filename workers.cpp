@@ -47,7 +47,7 @@ void producer(SharedData *sd, char type) {
   FifoQueue q(sd);
   int idx = (type == 'A') ? 0 : (type == 'B') ? 1 : 2;
 
-  srand(getpid());
+  srand((unsigned)getpid());
   int n = sd->fixed_count[idx] > 0
               ? sd->fixed_count[idx]
               : PROD_MIN + rand() % (PROD_MAX - PROD_MIN + 1);
