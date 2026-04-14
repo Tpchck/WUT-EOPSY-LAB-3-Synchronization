@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
     SharedData* sd = (SharedData*)mmap(NULL, sizeof(SharedData),
                                        PROT_READ | PROT_WRITE,
                                        MAP_SHARED, fd, 0);
-    close(fd); // fd no longer needed after mmap
+    close(fd);
 
     memset(sd, 0, sizeof(SharedData));
     sd->no_sync = no_sync;
