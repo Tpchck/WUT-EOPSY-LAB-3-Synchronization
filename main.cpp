@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
     printf("=== Sync Lab 3 | SYNC=%s DELAY=%s ===\n\n",
            no_sync ? "OFF" : "ON", use_delay ? "ON" : "OFF");
 
-    pid_t pids[5]; // 3 producers + 2 consumers
+    pid_t pids[5];
     const char types[] = {'A', 'B', 'C'};
 
     for (int i = 0; i < 3; i++) {
