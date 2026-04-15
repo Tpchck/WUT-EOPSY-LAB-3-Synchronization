@@ -85,7 +85,7 @@ void consumer1(SharedData *sd) {
 
   while (1) {
     if (sd->no_sync)
-      usleep(600);
+      usleep(500);
     else
       sem_wait(&sd->wake_c1);
 
@@ -134,7 +134,7 @@ void consumer2(SharedData *sd) {
 
   while (1) {
     if (sd->no_sync)
-      usleep(600);
+      usleep(500);
     else
       sem_wait(&sd->wake_c2);
 
