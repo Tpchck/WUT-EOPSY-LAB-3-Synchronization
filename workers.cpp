@@ -130,7 +130,7 @@ void consumer1(SharedData *sd) {
 
 void consumer2(SharedData *sd) {
   FifoQueue q(sd);
-  int triples = 0, singles = 0; // consumer2 stats
+  int triples = 0, singles = 0;
 
   while (1) {
     if (sd->no_sync)
