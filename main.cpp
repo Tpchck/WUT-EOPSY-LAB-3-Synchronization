@@ -13,7 +13,7 @@
 int main(int argc, char* argv[]) {
     setbuf(stdout, nullptr);
     int no_sync = 0, use_delay = 0, verbose = 0; // cli flags
-    int counts[3] = {0, 0, 0};
+    int counts[3] = {0, 0, 0}; // optional element counts
     int ci = 0;
 
     for (int i = 1; i < argc; i++) {
