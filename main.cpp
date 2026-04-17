@@ -84,5 +84,5 @@ int main(int argc, char* argv[]) {
     munmap(sd, sizeof(SharedData));
     shm_unlink(SHM_NAME);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
