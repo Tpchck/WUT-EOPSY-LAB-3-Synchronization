@@ -19,9 +19,7 @@ static bool c2_can_act(SharedData *sd) {
     return false;
   if (sd->count_a > 0 && sd->count_b > 0)
     return true;
-  if (sd->count_a == 0 && sd->count_b == 0)
-    return true;
-  if (sd->count >= QUEUE_CAPACITY)
+  if (sd->count_a == 0 || sd->count_b == 0)
     return true;
   return false;
 }
@@ -161,8 +159,7 @@ void consumer2(SharedData *sd) {
         printf("[C-2] {A=%3d,B=%3d,C=%3d} | A:%d B:%d C:%d total:%d\n",
                ea.value, eb.value, ec.value, sd->count_a, sd->count_b,
                sd->count_c, sd->count);
-    } else if (sd->count_c > 0 && ((sd->count_a == 0 && sd->count_b == 0) ||
-                                   sd->count >= QUEUE_CAPACITY)) {
+    } else if (sd->count_c > 0 && (sd->count_a == 0 || sd->count_b == 0)) {
       Element ec;
       q.find_and_remove('C', &ec);
       singles++;
