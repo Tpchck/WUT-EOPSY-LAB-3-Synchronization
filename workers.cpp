@@ -2,7 +2,11 @@
 #include "queue.h"
 #include <cstdio>
 #include <cstdlib>
+#include <ctime>
 #include <unistd.h>
+
+static const int PROD_MIN = 64;
+static const int PROD_MAX = 1128;
 
 static void sw(sem_t *s, int skip) {
   if (!skip)
@@ -45,7 +49,7 @@ void producer(SharedData *sd, char type) {
   FifoQueue q(sd);
   int idx = (type == 'A') ? 0 : (type == 'B') ? 1 : 2;
 
-  srand(getpid());
+  srand(getpid() ^ (unsigned)time(NULL));
   int n = sd->fixed_count[idx] > 0
               ? sd->fixed_count[idx]
               : PROD_MIN + rand() % (PROD_MAX - PROD_MIN + 1);

@@ -7,6 +7,7 @@ void FifoQueue::push(char type, uint8_t value) {
     sd->buf[sd->count].type = type;
     sd->buf[sd->count].value = value;
     sd->count++;
+    if (sd->count > sd->hwm) sd->hwm = sd->count;
     if (type == 'A') sd->count_a++;
     else if (type == 'B') sd->count_b++;
     else sd->count_c++;

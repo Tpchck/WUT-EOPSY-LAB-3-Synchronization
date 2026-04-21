@@ -10,6 +10,8 @@
 
 #define SHM_NAME "/sync_lab3_335954"
 
+static void cleanup_shm() { shm_unlink(SHM_NAME); }
+
 int main(int argc, char* argv[]) {
     setbuf(stdout, NULL);
     int no_sync = 0, use_delay = 0, verbose = 0;
@@ -29,6 +31,7 @@ int main(int argc, char* argv[]) {
                                        PROT_READ | PROT_WRITE,
                                        MAP_SHARED, fd, 0);
     close(fd);
+    atexit(cleanup_shm);
 
     memset(sd, 0, sizeof(SharedData));
     sd->no_sync = no_sync;
@@ -76,6 +79,7 @@ int main(int argc, char* argv[]) {
     printf("Produced: A=%d B=%d C=%d total=%d\n",
            sd->total_produced[0], sd->total_produced[1], sd->total_produced[2],
            sd->total_produced[0] + sd->total_produced[1] + sd->total_produced[2]);
+    printf("Queue peak fill: %d/%d\n", sd->hwm, QUEUE_CAPACITY);
 
     sem_destroy(&sd->mutex);
     sem_destroy(&sd->slots);

@@ -21,6 +21,7 @@ struct SharedData {
     int use_delay;
     int verbose;
     int fixed_count[3];
+    int hwm;
 };
 
 #endif
