@@ -17,7 +17,7 @@ struct SharedData {
     int prod_done;
     int total_produced[3];
     int all_done;
-    int no_sync; // 1 = semaphores disabled
+    int no_sync;
     int use_delay; // 1 = artificial delays enabled
     int verbose; // 1 = detailed logging
     int fixed_count[3];
