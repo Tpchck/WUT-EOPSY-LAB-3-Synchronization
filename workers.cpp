@@ -81,7 +81,7 @@ void producer(SharedData *sd, char type) {
 
 void consumer1(SharedData *sd) {
   FifoQueue q(sd);
-  int ca = 0, cb = 0;
+  int ca = 0, cb = 0; // consumed counts
 
   while (1) {
     if (sd->no_sync)
