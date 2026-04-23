@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
   sem_init(&sd->wake_c1, 1, 0);
   sem_init(&sd->wake_c2, 1, 0);
 
-  printf("=== Sync Lab 3 | SYNC=%s DELAY=%s ===\n\n", no_sync ? "OFF" : "ON",
+  printf("=== SYNC=%s DELAY=%s ===\n\n", no_sync ? "OFF" : "ON",
          use_delay ? "ON" : "OFF");
 
   pid_t pids[5];

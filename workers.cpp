@@ -50,9 +50,14 @@ void producer(SharedData *sd, char type) {
   int idx = (type == 'A') ? 0 : (type == 'B') ? 1 : 2;
 
   srand(getpid() ^ (unsigned)time(NULL));
-  int n = sd->fixed_count[idx] > 0
-              ? sd->fixed_count[idx]
-              : PROD_MIN + rand() % (PROD_MAX - PROD_MIN + 1);
+  int n;
+  if (sd->fixed_count[idx] > 0) {
+    n = sd->fixed_count[idx];
+  } else {
+    int range = PROD_MAX - PROD_MIN + 1;
+    n = PROD_MIN + rand() % range;
+    printf("[P-%c] range=[%d..%d], roll=%d, n=%d\n", type, PROD_MIN, PROD_MAX, n - PROD_MIN, n);
+  }
 
   sw(&sd->mutex, sd->no_sync);
   sd->total_produced[idx] = n;
