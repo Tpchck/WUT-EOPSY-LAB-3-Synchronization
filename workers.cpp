@@ -5,12 +5,12 @@
 #include <unistd.h>
 
 static void sw(sem_t *s, int skip) {
-  if (!skip) // no-op when sync disabled
+  if (!skip)
     sem_wait(s);
 }
 
 static void sp(sem_t *s, int skip) {
-  if (!skip) // no-op when sync disabled
+  if (!skip)
     sem_post(s);
 }
 
