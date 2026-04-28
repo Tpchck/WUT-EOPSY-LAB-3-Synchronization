@@ -12,7 +12,7 @@
 
 int main(int argc, char* argv[]) {
     setbuf(stdout, nullptr);
-    int no_sync = 0, use_delay = 0, verbose = 0;
+    int no_sync = 0, use_delay = 0, verbose = 0; // cli flags
     int counts[3] = {0, 0, 0};
     int ci = 0;
 
