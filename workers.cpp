@@ -16,7 +16,7 @@ static void sp(sem_t *s, int skip) {
 
 static bool c2_can_act(SharedData *sd) {
   if (sd->count_c == 0)
-    return false;
+    return false; // no C elements available
   if (sd->count_a > 0 && sd->count_b > 0)
     return true;
   if (sd->count_a == 0 && sd->count_b == 0)
