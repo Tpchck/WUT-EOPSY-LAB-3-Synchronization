@@ -13,7 +13,7 @@
 int main(int argc, char* argv[]) {
     setbuf(stdout, NULL);
     int no_sync = 0, use_delay = 0, verbose = 0;
-    int counts[3] = {0, 0, 0}; // optional element counts
+    int counts[3] = {0, 0, 0};
     int ci = 0; // count index
 
     for (int i = 1; i < argc; i++) {
